@@ -1,37 +1,37 @@
 class JellyBean:
 
-    def __init__(self, flavor):
-        self._flavor = flavor
+    def __init__(self, flavor=''):
+        self.flavor = flavor
 
     def setFlavor(self, flavor):
-        self._flavor = flavor
+        self.flavor = flavor
 
     def getFlavor(self):
-        return self._flavor
+        return self.flavor
 
 
 class Dessert(JellyBean):
 
-    def __init__(self, name,calories):
-        self._name = name
-        self._calories = calories
+    def __init__(self, name='',calories=0):
+        self.name = name
+        self.calories = calories
         super().__init__()
 
     def setName(self, name):
-        self._name = name
+        self.name = name
 
     def getName(self):
-        return self._name
+        return self.name
 
     def setCalories(self, calories):
-        self._calories = calories
+        self.calories = calories
 
     def getCalories(self):
-        return self._calories
+        return self.calories
 
     def is_healthy(self):
-        if type(self._calories) == int:
-            if self._calories < 200:
+        if type(self.calories) == int or float:
+            if self.calories < 200:
                 return True
             else:
                 return False
@@ -39,13 +39,15 @@ class Dessert(JellyBean):
             return False
 
     def is_delicious(self):
-        if self.getFlavor() == "black licorice":
+        if self.flavor == "black licorice":
             return False
         else:
             return True
 
 
-pt = Dessert('cake', 199)
+pt = Dessert()
+pt.calories=201.2
+pt.flavor="black licorice"
+print(pt.is_healthy())
+print(pt.flavor)
 print(pt.is_delicious())
-pt.setFlavor('black licorice')
-print(pt.is_delicious(), pt.is_healthy())
