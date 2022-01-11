@@ -6,19 +6,14 @@ class Dessert:
         super().__init__()
 
     def is_healthy(self):
-        if type(self.calories) == str:
-            return False
-        else:
-            if self.calories < 200:
-                return True
-            else:
-                return False
+        if (type(self.calories) == int or type(self.calories) == float) and self.calories < 200:
+            return True
+        return False
 
     def is_delicious(self):
         if self.flavor == "black licorice":
             return False
-        else:
-            return True
+        return True
 
 
 class JellyBean(Dessert):
@@ -29,12 +24,12 @@ class JellyBean(Dessert):
 
 
 pt = JellyBean()
-pt.calories=201
-pt.calories=111
-pt.flavor="black licorice"
-pt.flavor='a'
-pt.name='test'
-pt.name='test1'
+pt.calories = 201
+pt.calories = 111
+pt.flavor = "black licorice"
+pt.flavor = 'a'
+pt.name = 'test'
+pt.name = 'test1'
 print(pt.is_healthy())
 print(pt.is_delicious())
 print(pt.name)
